@@ -1,0 +1,38 @@
+<div class="container">
+    <div *ngIf="videoInfo">
+      <div class="videoContainer">
+        <video #videoPlayer (loadedmetadata)="onMetadata($event, videoPlayer)" (timeupdate)="onTimeUpdate($event, videoPlayer)">
+          <source src="http://localhost/sitio_videos/API/uploads/{{videoInfo[0].video_src}}">
+        </video>
+        <!-- Agregamos una barra de progreso -->
+        <div class="progreso">
+          <!-- Tomamos el progreso con un estilo css para que vaya aumentando la barra a medida que avanza el video: -->
+          <div class="barra" [ngStyle]="{'width': progreso + '%'}"></div><!-- esto le dará un ancho a medida que el progreso avanza -->
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="controles ">
+          <div class="col-sm-1 pull-left text-center">
+            <i class="fa fa-play" (click)="reproducirVideo()">Play</i>
+          </div>
+
+          <div class="col-sm-1 pull-left text-center">
+            <i class="fa fa-pause" (click)="pausarVideo()">Pause</i>
+          </div>
+  
+          <div class="col-sm-1 pull-left text-center">
+            <i class="fa fa-stop" (click)="detenerVideo()">Stop</i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="detalles">
+        <h1>{{videoInfo[0].titulo}} - {{duracion}}</h1>
+        <!-- desplegamos la posición del video y la duración y el total: -->
+        <span *ngIf="posicion">{{posicion}} / {{duracion}} </span> 
+        <p>{{videoInfo[0].descripcion}}</p>
+      </div>
+    </div>
+  </div>
+  

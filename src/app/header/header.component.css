@@ -1,0 +1,22 @@
+.encabezado{
+    background: green;
+}
+.encabezado h2{
+    margin: 5px 0;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.encabezado a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.encabezado i{
+    color: #ffe626;
+    text-shadow: none;
+}
+/* Ponemos la clase activado con fondo rojo */
+.activado{
+    background: red;
+}
